@@ -1,0 +1,8 @@
+webService (Service Oriented Architecture) : You don't have any idea of, where you are goint to use it. You will create and it acts as utility. 
+You can reuse wherever you want.
+
+MicroService : You will have create picture of what you are going to create. Eg, create an amazon like application. You can also reuse this, but you 
+will not create for the indent of reusing.
+
+Technology used : Spring cloud
+Each microservice will be a spring-boot application.
