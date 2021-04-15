@@ -31,7 +31,7 @@ We can do clientSide load balancing by using DiscoveryClient.
 
 Fault tolerance - 
 what happens when any microService goes down ?
-How we are going to handle the fault ?
+How we are going to handle the fault ? 
 
 Resilience -
 how many fault a system can tolerate ?
