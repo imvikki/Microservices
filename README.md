@@ -31,7 +31,7 @@ We can do clientSide load balancing by using DiscoveryClient.
 
 Fault tolerance - 
 what happens when any microService goes down ?
-How we are going to handle the fault ? 
+How we are going to handle the fault ?
 
 Resilience -
 how many fault a system can tolerate ?
@@ -112,6 +112,28 @@ Zipkin service will serve as the store for all our spans. Each span is sent to t
 
 @EnableZipkinServer in application class
 
+SAGA :
+
+	Choreography : Event based (it may end in deadlock because one service is depend on another)
+	Orchestration : Command based (we have central orchestrator service, which manages other microservices. If any change in other service, we need to also change in orchestrator service)
+
+CQRS : https://blog.nebrass.fr/playing-with-cqrs-and-event-sourcing-in-spring-boot-and-axon/
+
+	- CQRS stands for Command Query Responsibility Segregation is a design pattern that aims to separate the Read and Write operations
+	- Queries: a Read only operation – no state is updated after executing queries
+	  Commands: a Writing operation – state is updated after executing commands
+	- Query is handled by the Reading Components that will interact with the DB, parses the DB response, 
+	  creates a Data Transfert Object that will be returned to the User.
+	- A Command is a Business Action that the Application’s user want to do, for example: RegisterStudent, MakeDeposit, etc..
+	- Generally, commands are inserted in a Queue to be processed asynchronously, so technically speaking, a Command Handler is invoked by a Queue Listener.
+	
+Event Sourcing :
+
+	- Event Sourcing aims to persist the state of a business entity (BankAccount for example) as a sequence of state-changing events. 
+	- Every action performed on a business entity should be persisted. 
+	- The application reconstructs an entity’s current state by replaying the events.	
+	  
+
 
 
 spring.zipkin.base-url=http://localhost:9411/ >> we need to add this in microservices for which you want to see log in zipkins
@@ -133,6 +155,7 @@ spring
 springboot
 microservices >> in28minutes, koushik
 typescript
+
 
 Topics covered
   1. Service Discovery
